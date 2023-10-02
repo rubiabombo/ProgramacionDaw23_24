@@ -125,7 +125,10 @@ public class Ejercicio01_SumaDeNumerosPorCategorias {
 						}
 					}
 				}		
-			
+				 System.out.println("Suma de números negativos: " + sumaNegativos);
+			        System.out.println("Suma de números pequeñoss (entre 0 y 25): " + sumaPequenios);
+			        System.out.println("Suma de números medios (entre 26 y 250): " + sumaMedios);
+			        System.out.println("Suma de números grandes (mayores de 250): " + sumaGrandes);
 	
 	}	
 }
