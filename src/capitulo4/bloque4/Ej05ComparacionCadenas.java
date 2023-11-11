@@ -5,38 +5,36 @@ import java.util.Scanner;
 public class Ej05ComparacionCadenas {
 
 	public static void main(String[] args) {
-		   // Crea un objeto Scanner para leer la entrada del usuario
-        Scanner scanner = new Scanner(System.in);
+		String s1, s2;
+		Scanner sc = new Scanner(System.in);
 
-        // Lee las dos cadenas de caracteres del usuario
-        System.out.print("Introduce la primera cadena: ");
-        String string1 = scanner.nextLine();
-        System.out.print("Introduce la segunda cadena: ");
-        String string2 = scanner.nextLine();
+		System.out.println("Introduzca cadena s1: ");
+		s1 = sc.nextLine();
 
-        // Llama al método para comparar las cadenas y muestra el resultado
-        int resultado = compararCadenas(string1, string2);
+		System.out.println("Introduzca cadena s2: ");
+		s2 = sc.nextLine();
 
-        if (resultado < 0) {
-            System.out.println("El string 1 es menor que string 2.");
-        } else if (resultado > 0) {
-            System.out.println("El string 1 es mayor que string 2.");
-        } else {
-            System.out.println("Ambas cadenas son iguales.");
-        }
+		if (comparaCadenas(s1, s2) == -1) {
+			System.out.println(s1 + " es menor que " + s2);
+		} else
+			System.out.println(s2 + " es menor que " + s1);
 
-        // Cierra el objeto Scanner
-        scanner.close();
-    }
+	}
 
-    public static int compararCadenas(String string1, String string2) {
-        // Convierte ambas cadenas a minúsculas y elimina vocales con tilde y 'ñ'
-        string1 = string1.toLowerCase().replaceAll("[áéíóúüñ]", "aeiouun");
-        string2 = string2.toLowerCase().replaceAll("[áéíóúüñ]", "aeiouun");
+	public static int comparaCadenas(String s1, String s2) {
 
-        // Realiza la comparación lexicográfica y devuelve el resultado
-        return string1.compareTo(string2);
+		int menorLongitud = (s1.length() < s2.length()) ? s1.length() : s2.length();
 
+		for (int i = 0; i < menorLongitud; i++) {
+			if (s1.charAt(i) < s2.charAt(i))
+				return -1;
+			else if (s1.charAt(i) > s2.charAt(i))
+				return 1;
+		}
+
+		if (s1.length() == s2.length())
+			return 0;
+		return (s1.length() < s2.length()) ? -1 : 1;
 	}
 
 }

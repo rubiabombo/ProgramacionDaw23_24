@@ -5,32 +5,27 @@ import java.util.Scanner;
 public class Ej03Palindromo {
 
 	public static void main(String[] args) {
-		 Scanner scanner = new Scanner(System.in);
+		String s;
+		Scanner sc = new Scanner(System.in);
 
-	        System.out.print("Ingresa una cadena de caracteres: ");
-	        String cadena = scanner.nextLine();
+		System.out.println("Introduzca cadena: ");
+		s = sc.nextLine();
 
-	        boolean esPalindromo = esPalindromo(cadena);
+		if (esPalindromo(s))
+			System.out.println("Es un palíndromo");
+		else
+			System.out.println("NO es un palíndromo");
 
-	        if (esPalindromo) {
-	            System.out.println("La cadena es un palíndromo.");
-	        } else {
-	            System.out.println("La cadena no es un palíndromo.");
-	        }
-	    }
+	}
 
-	    public static boolean esPalindromo(String cadena) {
-	        // Eliminar espacios en blanco y convertir todo a minúsculas para evitar problemas de capitalización
-	        cadena = cadena.replaceAll("\\s", "").toLowerCase();
-	        
-	        int longitud = cadena.length();
-	        for (int i = 0; i < longitud / 2; i++) {
-	            if (cadena.charAt(i) != cadena.charAt(longitud - 1 - i)) {
-	                return false;
-	            }
-	        }
-	        return true;
+	public static boolean esPalindromo(String str) {
 
+		for (int i = 0; i < (str.length() / 2); i++) {
+			if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
