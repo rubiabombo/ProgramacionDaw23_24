@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 public class Utils {
 	/**
+public class Utils {
+
+	/**
 	 * Método que obtiene y devuelve un número al azar, entre 0 y 100.
 	 * @return Número generado al azar entre 0 y 100
 	 */
@@ -28,6 +31,32 @@ public class Utils {
 	}
 	 
  
+	/**
+	 * Pide un número entero al usuario
+	 * @param mensaje String que va a mostrarse en consola para pedir el número
+	 * @return Número entero introducido por el usuario
+	 */
+	public static int pideNumeroEntero (String mensaje) {
+		int n = 0;
+		boolean esNumeroCorrecto;
+		Scanner sc = new Scanner(System.in);
+		
+		do {
+			esNumeroCorrecto = false;
+			try {
+				System.out.println(mensaje);
+				n = Integer.parseInt(sc.nextLine());
+				esNumeroCorrecto = true;
+			}
+			catch (Exception e) {
+				System.out.println("No ha introducido un número");
+			}
+		} while (esNumeroCorrecto == false);
+		
+		return n;
+	}
+	
+	
 	
 	/**
 	 * Obtiene un número entero introducido por el usuario, por el método de InputStreamReader
@@ -155,5 +184,5 @@ public class Utils {
 		System.out.println(desc);
 		return sc.nextLine();
 	}
-	}
-
+	
+}
