@@ -8,8 +8,6 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Utils {
-	/**
-public class Utils {
 
 	/**
 	 * Método que obtiene y devuelve un número al azar, entre 0 y 100.
@@ -184,5 +182,12 @@ public class Utils {
 		System.out.println(desc);
 		return sc.nextLine();
 	}
+
+
+	public static String obtenerStringPorScanner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
+
