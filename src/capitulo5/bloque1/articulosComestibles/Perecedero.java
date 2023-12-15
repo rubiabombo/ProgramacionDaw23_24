@@ -1,28 +1,20 @@
 package capitulo5.bloque1.articulosComestibles;
 
 public class Perecedero extends Articulo {
-	// Propiedades
-	protected String fechaCaducidad;
+	
+	  protected String fechaCaducidad;
 
-	// Constructor por defecto
-	public Perecedero() {
-		
+	    public Perecedero(int codigo, String nombre, double precio, String fechaCaducidad) {
+	        super(codigo, nombre, precio);
+	        this.fechaCaducidad = fechaCaducidad;
+	    }
 
-	}
-
-	// Constructor
-	public Perecedero(int codigo, String nombre, float precio, String fechaCaducidad) {
-		super(codigo, nombre, precio);
-		this.fechaCaducidad = fechaCaducidad;
-
-	}
-
-	@Override
-	public String toString() {
-		return "Perecedero [fechaCaducidad=" + fechaCaducidad + ", codigo=" + codigo + ", nombre=" + nombre
-				+ ", precio=" + precio + "]";
+	    @Override
+	    public void mostrarInformacion() {
+	        super.mostrarInformacion();
+	        System.out.println("Fecha de caducidad: " + fechaCaducidad);
+	    }
 	}
 
 	
 
-}

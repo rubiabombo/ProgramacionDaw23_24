@@ -1,28 +1,16 @@
 package capitulo5.bloque1.coleccionAntiguedades;
 
 public class Libro extends Antiguedad{
-	// Propiedades
-		protected String autor;
-		protected String titulo;
+	 private String autor;
+	    private String titulo;
 
-		// Constructor por defecto
-		public Libro() {
+	    public Libro(int anioFabricacion, String origen, double precioVenta, String autor, String titulo) {
+	        super(anioFabricacion, origen, precioVenta);
+	        this.autor = autor;
+	        this.titulo = titulo;
+	    }
 
-		}
-
-		// Constructor Superclase
-		public Libro(int anyoFabricacion, String origen, float precioVenta, String autor, String titulo) {
-			super(anyoFabricacion, origen, precioVenta);
-			this.autor = autor;
-			this.titulo = titulo;
-
-		}
-
-		@Override
-		public String toString() {
-			return "Libro [autor=" + autor + ", titulo=" + titulo + ", anyoFabricacion=" + anyoFabricacion + ", origen="
-					+ origen + ", precioVenta=" + precioVenta + "]";
-		}
-
-
+	    public String toString() {
+	        return super.toString() + String.format(", Autor: %s, Título: %s", autor, titulo);
+	    }
 }
