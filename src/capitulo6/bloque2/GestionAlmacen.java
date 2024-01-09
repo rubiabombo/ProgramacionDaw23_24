@@ -6,142 +6,144 @@ import java.util.Scanner;
 
 public class GestionAlmacen {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		Map<String, Articulo> almacen = new HashMap<>();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Map<String, Articulo> almacen = new HashMap<>();
 
-		int opcion;
+        int opcion;
 
-		do {
-			System.out.println("-------- Menú --------");
-			System.out.println("0.- Salir");
-			System.out.println("1.- Lista de artículos");
-			System.out.println("2.- Crear un nuevo artículo");
-			System.out.println("3.- Eliminar un artículo");
-			System.out.println("4.- Actualizar un artículo");
-			System.out.print("Ingrese la opción: ");
+        do {
+            System.out.println("-------- Menú --------");
+            System.out.println("0.- Salir");
+            System.out.println("1.- Lista de artículos");
+            System.out.println("2.- Crear un nuevo artículo");
+            System.out.println("3.- Eliminar un artículo");
+            System.out.println("4.- Actualizar un artículo");
+            System.out.print("Ingrese la opción: ");
+            
+            opcion = sc.nextInt();
+            sc.nextLine(); // Consumir la nueva línea después de nextInt()
 
-			opcion = sc.nextInt();
-			sc.nextLine(); // Consumir la nueva línea después de nextInt()
+            switch (opcion) {
+                case 0:
+                    System.out.println("Saliendo del programa.");
+                    break;
+                case 1:
+                    listarArticulos(almacen);
+                    break;
+                case 2:
+                    crearArticulo(sc, almacen);
+                    break;
+                case 3:
+                    eliminarArticulo(sc, almacen);
+                    break;
+                case 4:
+                    actualizarArticulo(sc, almacen);
+                    break;
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo.");
+            }
 
-			switch (opcion) {
-			case 0:
-				System.out.println("Saliendo del programa.");
-				break;
-			case 1:
-				listarArticulos(almacen);
-				break;
-			case 2:
-				crearArticulo(sc, almacen);
-				break;
-			case 3:
-				eliminarArticulo(sc, almacen);
-				break;
-			case 4:
-				actualizarArticulo(sc, almacen);
-				break;
-			default:
-				System.out.println("Opción no válida. Inténtelo de nuevo.");
-			}
+        } while (opcion != 0);
+        
+        sc.close();
+    }
 
-		} while (opcion != 0);
+    private static void listarArticulos(Map<String, Articulo> almacen) {
+        System.out.println("-------- Lista de Artículos --------");
+        for (Map.Entry<String, Articulo> entry : almacen.entrySet()) {
+            System.out.println(entry.getValue());
+        }
+        System.out.println("-----------------------------------");
+    }
 
-		sc.close();
-	}
+    private static void crearArticulo(Scanner scanner, Map<String, Articulo> almacen) {
+        System.out.print("Ingrese el código de barras del nuevo artículo: ");
+        String codigoBarras = scanner.nextLine();
 
-	private static void listarArticulos(Map<String, Articulo> almacen) {
-		System.out.println("-------- Lista de Artículos --------");
-		for (Map.Entry<String, Articulo> entry : almacen.entrySet()) {
-			System.out.println(entry.getValue());
-		}
-		System.out.println("-----------------------------------");
-	}
+        System.out.print("Ingrese el número de estante del nuevo artículo: ");
+        int numeroEstante = scanner.nextInt();
+        
+        System.out.print("Ingrese la cantidad de unidades en stock del nuevo artículo: ");
+        int cantidadStock = scanner.nextInt();
 
-	private static void crearArticulo(Scanner sc, Map<String, Articulo> almacen) {
-		System.out.print("Ingrese el código de barras del nuevo artículo: ");
-		String codigoBarras = sc.nextLine();
+        Articulo nuevoArticulo = new Articulo(codigoBarras, numeroEstante, cantidadStock);
+        almacen.put(codigoBarras, nuevoArticulo);
 
-		System.out.print("Ingrese el número de estante del nuevo artículo: ");
-		int numeroEstante = sc.nextInt();
+        System.out.println("Artículo añadido correctamente.");
+    }
 
-		System.out.print("Ingrese la cantidad de unidades en stock del nuevo artículo: ");
-		int cantidadStock = sc.nextInt();
+    private static void eliminarArticulo(Scanner scanner, Map<String, Articulo> almacen) {
+        System.out.print("Ingrese el código de barras del artículo a eliminar: ");
+        String codigoBarras = scanner.nextLine();
 
-		Articulo nuevoArticulo = new Articulo(codigoBarras, numeroEstante, cantidadStock);
-		almacen.put(codigoBarras, nuevoArticulo);
+        if (almacen.containsKey(codigoBarras)) {
+            almacen.remove(codigoBarras);
+            System.out.println("Artículo eliminado correctamente.");
+        } else {
+            System.out.println("No se encontró el artículo con ese código de barras.");
+        }
+    }
 
-		System.out.println("Artículo añadido correctamente.");
-	}
+    private static void actualizarArticulo(Scanner scanner, Map<String, Articulo> almacen) {
+        System.out.print("Ingrese el código de barras del artículo a actualizar: ");
+        String codigoBarras = scanner.nextLine();
 
-	private static void eliminarArticulo(Scanner sc, Map<String, Articulo> almacen) {
-		System.out.print("Ingrese el código de barras del artículo a eliminar: ");
-		String codigoBarras = sc.nextLine();
+        if (almacen.containsKey(codigoBarras)) {
+            System.out.print("Ingrese el nuevo número de estante: ");
+            int nuevoEstante = scanner.nextInt();
+            
+            System.out.print("Ingrese la nueva cantidad de unidades en stock: ");
+            int nuevaCantidad = scanner.nextInt();
 
-		if (almacen.containsKey(codigoBarras)) {
-			almacen.remove(codigoBarras);
-			System.out.println("Artículo eliminado correctamente.");
-		} else {
-			System.out.println("No se encontró el artículo con ese código de barras.");
-		}
-	}
+            Articulo articuloActualizado = almacen.get(codigoBarras);
+            articuloActualizado.setNumeroEstante(nuevoEstante);
+            articuloActualizado.setCantidadStock(nuevaCantidad);
 
-	private static void actualizarArticulo(Scanner sc, Map<String, Articulo> almacen) {
-		System.out.print("Ingrese el código de barras del artículo a actualizar: ");
-		String codigoBarras = sc.nextLine();
-
-		if (almacen.containsKey(codigoBarras)) {
-			System.out.print("Ingrese el nuevo número de estante: ");
-			int nuevoEstante = sc.nextInt();
-
-			System.out.print("Ingrese la nueva cantidad de unidades en stock: ");
-			int nuevaCantidad = sc.nextInt();
-
-			Articulo articuloActualizado = almacen.get(codigoBarras);
-			articuloActualizado.setNumeroEstante(nuevoEstante);
-			articuloActualizado.setCantidadStock(nuevaCantidad);
-
-			System.out.println("Artículo actualizado correctamente.");
-		} else {
-			System.out.println("No se encontró el artículo con ese código de barras.");
-		}
-	}
+            System.out.println("Artículo actualizado correctamente.");
+        } else {
+            System.out.println("No se encontró el artículo con ese código de barras.");
+        }
+    }
 }
 
 class Articulo {
-	private String codigoBarras;
-	private int numeroEstante;
-	private int cantidadStock;
+    private String codigoBarras;
+    private int numeroEstante;
+    private int cantidadStock;
 
-	public Articulo(String codigoBarras, int numeroEstante, int cantidadStock) {
-		this.codigoBarras = codigoBarras;
-		this.numeroEstante = numeroEstante;
-		this.cantidadStock = cantidadStock;
-	}
+    public Articulo(String codigoBarras, int numeroEstante, int cantidadStock) {
+        this.codigoBarras = codigoBarras;
+        this.numeroEstante = numeroEstante;
+        this.cantidadStock = cantidadStock;
+    }
 
-	public String getCodigoBarras() {
-		return codigoBarras;
-	}
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
 
-	public int getNumeroEstante() {
-		return numeroEstante;
-	}
+    public int getNumeroEstante() {
+        return numeroEstante;
+    }
 
-	public void setNumeroEstante(int numeroEstante) {
-		this.numeroEstante = numeroEstante;
-	}
+    public void setNumeroEstante(int numeroEstante) {
+        this.numeroEstante = numeroEstante;
+    }
 
-	public int getCantidadStock() {
-		return cantidadStock;
-	}
+    public int getCantidadStock() {
+        return cantidadStock;
+    }
 
-	public void setCantidadStock(int cantidadStock) {
-		this.cantidadStock = cantidadStock;
-	}
+    public void setCantidadStock(int cantidadStock) {
+        this.cantidadStock = cantidadStock;
+    }
 
-	@Override
-	public String toString() {
-		return "Artículo{" + "Código de barras='" + codigoBarras + '\'' + ", Número de estante=" + numeroEstante
-				+ ", Cantidad en stock=" + cantidadStock + '}';
-	}
+    @Override
+    public String toString() {
+        return "Artículo{" +
+                "Código de barras='" + codigoBarras + '\'' +
+                ", Número de estante=" + numeroEstante +
+                ", Cantidad en stock=" + cantidadStock +
+                '}';
+    }
 }
-
