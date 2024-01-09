@@ -7,26 +7,32 @@ import java.util.Scanner;
 public class GestionAlmacen {
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 		Map<String, Articulo> almacen = new HashMap<>();
 
 		int opcion;
+
 		do {
-			mostrarMenu();
-			System.out.print("Ingrese su opción: ");
+			System.out.println("-------- Menú --------");
+			System.out.println("0.- Salir");
+			System.out.println("1.- Lista de artículos");
+			System.out.println("2.- Crear un nuevo artículo");
+			System.out.println("3.- Eliminar un artículo");
+			System.out.println("4.- Actualizar un artículo");
+			System.out.print("Ingrese la opción: ");
+
 			opcion = sc.nextInt();
-			sc.nextLine(); // Consumir el salto de línea después del número
+			sc.nextLine(); // Consumir la nueva línea después de nextInt()
 
 			switch (opcion) {
 			case 0:
-				System.out.println("Saliendo...");
+				System.out.println("Saliendo del programa.");
 				break;
 			case 1:
-				mostrarListaArticulos(almacen);
+				listarArticulos(almacen);
 				break;
 			case 2:
-				crearNuevoArticulo(sc, almacen);
+				crearArticulo(sc, almacen);
 				break;
 			case 3:
 				eliminarArticulo(sc, almacen);
@@ -35,7 +41,7 @@ public class GestionAlmacen {
 				actualizarArticulo(sc, almacen);
 				break;
 			default:
-				System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
+				System.out.println("Opción no válida. Inténtelo de nuevo.");
 			}
 
 		} while (opcion != 0);
@@ -43,40 +49,28 @@ public class GestionAlmacen {
 		sc.close();
 	}
 
-	private static void mostrarMenu() {
-		System.out.println("\n-- Menú --");
-		System.out.println("0.- Salir");
-		System.out.println("1.- Lista de artículos");
-		System.out.println("2.- Crear un nuevo artículo");
-		System.out.println("3.- Eliminar un artículo");
-		System.out.println("4.- Actualizar un artículo");
-	}
-
-	private static void mostrarListaArticulos(Map<String, Articulo> almacen) {
-		if (almacen.isEmpty()) {
-			System.out.println("El almacén está vacío.");
-		} else {
-			System.out.println("\nLista de artículos:");
-			for (Map.Entry<String, Articulo> entry : almacen.entrySet()) {
-				System.out.println(entry.getValue());
-			}
+	private static void listarArticulos(Map<String, Articulo> almacen) {
+		System.out.println("-------- Lista de Artículos --------");
+		for (Map.Entry<String, Articulo> entry : almacen.entrySet()) {
+			System.out.println(entry.getValue());
 		}
+		System.out.println("-----------------------------------");
 	}
 
-	private static void crearNuevoArticulo(Scanner scanner, Map<String, Articulo> almacen) {
-		System.out.print("Ingrese el código de barras: ");
-		String codigoBarras = scanner.nextLine();
+	private static void crearArticulo(Scanner sc, Map<String, Articulo> almacen) {
+		System.out.print("Ingrese el código de barras del nuevo artículo: ");
+		String codigoBarras = sc.nextLine();
 
-		System.out.print("Ingrese el número de estante: ");
-		int numeroEstante = scanner.nextInt();
+		System.out.print("Ingrese el número de estante del nuevo artículo: ");
+		int numeroEstante = sc.nextInt();
 
-		System.out.print("Ingrese la cantidad de unidades en stock: ");
-		int cantidadStock = scanner.nextInt();
+		System.out.print("Ingrese la cantidad de unidades en stock del nuevo artículo: ");
+		int cantidadStock = sc.nextInt();
 
 		Articulo nuevoArticulo = new Articulo(codigoBarras, numeroEstante, cantidadStock);
 		almacen.put(codigoBarras, nuevoArticulo);
 
-		System.out.println("Artículo agregado correctamente.");
+		System.out.println("Artículo añadido correctamente.");
 	}
 
 	private static void eliminarArticulo(Scanner sc, Map<String, Articulo> almacen) {
@@ -87,7 +81,7 @@ public class GestionAlmacen {
 			almacen.remove(codigoBarras);
 			System.out.println("Artículo eliminado correctamente.");
 		} else {
-			System.out.println("No se encontró ningún artículo con el código de barras proporcionado.");
+			System.out.println("No se encontró el artículo con ese código de barras.");
 		}
 	}
 
@@ -100,15 +94,15 @@ public class GestionAlmacen {
 			int nuevoEstante = sc.nextInt();
 
 			System.out.print("Ingrese la nueva cantidad de unidades en stock: ");
-			int nuevaCantidadStock = sc.nextInt();
+			int nuevaCantidad = sc.nextInt();
 
-			Articulo articulo = almacen.get(codigoBarras);
-			articulo.setNumeroEstante(nuevoEstante);
-			articulo.setCantidadStock(nuevaCantidadStock);
+			Articulo articuloActualizado = almacen.get(codigoBarras);
+			articuloActualizado.setNumeroEstante(nuevoEstante);
+			articuloActualizado.setCantidadStock(nuevaCantidad);
 
 			System.out.println("Artículo actualizado correctamente.");
 		} else {
-			System.out.println("No se encontró ningún artículo con el código de barras proporcionado.");
+			System.out.println("No se encontró el artículo con ese código de barras.");
 		}
 	}
 }
@@ -146,7 +140,8 @@ class Articulo {
 
 	@Override
 	public String toString() {
-		return "Artículo{" + "Código de Barras='" + codigoBarras + '\'' + ", Número de Estante=" + numeroEstante
-				+ ", Cantidad en Stock=" + cantidadStock + '}';
+		return "Artículo{" + "Código de barras='" + codigoBarras + '\'' + ", Número de estante=" + numeroEstante
+				+ ", Cantidad en stock=" + cantidadStock + '}';
 	}
 }
+
