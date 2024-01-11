@@ -4,26 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class GestionAlmacen {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Map<String, Articulo> almacen = new HashMap<>();
+       
 
         int opcion;
 
         do {
-            System.out.println("-------- Menú --------");
-            System.out.println("0.- Salir");
-            System.out.println("1.- Lista de artículos");
-            System.out.println("2.- Crear un nuevo artículo");
-            System.out.println("3.- Eliminar un artículo");
-            System.out.println("4.- Actualizar un artículo");
-            System.out.print("Ingrese la opción: ");
-            
-            opcion = sc.nextInt();
-            sc.nextLine(); // Consumir la nueva línea después de nextInt()
+        	String input = JOptionPane.showInputDialog(
+                    "-------- Menú --------\n" +
+                            "0.- Salir\n" +
+                            "1.- Lista de artículos\n" +
+                            "2.- Crear un nuevo artículo\n" +
+                            "3.- Eliminar un artículo\n" +
+                            "4.- Actualizar un artículo\n" +
+                            "Ingrese la opción:");
 
+            opcion = Integer.parseInt(input);
             switch (opcion) {
                 case 0:
                     System.out.println("Saliendo del programa.");
