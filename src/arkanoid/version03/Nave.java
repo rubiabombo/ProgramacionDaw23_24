@@ -35,7 +35,7 @@ public class Nave extends Actor {
 	 * @param g
 	 */
 	public void paint(Graphics g) {
-		g.setColor(Color.ORANGE);
+		g.setColor(Color.YELLOW);
 		g.fillRect(this.x, this.y, this.ancho , this.alto);
 	};
 	

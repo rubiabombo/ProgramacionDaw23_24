@@ -2,7 +2,7 @@ package capitulo7.bloque1;
 
 import java.util.Scanner;
 
-public class Imprimir100numerosHexagesimal {
+public class Ej03_Imprimir100numerosHexagesimal {
 
 	public static void main(String[] args) {
 		System.out.println("Decimal   Hexagesimal");

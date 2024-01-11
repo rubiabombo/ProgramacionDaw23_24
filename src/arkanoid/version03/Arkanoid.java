@@ -120,12 +120,12 @@ public class Arkanoid {
 		actores.add(n);
 		
 		Color[] color = new Color[6];
-		color[0]= Color.PINK;
+		color[0]= Color.ORANGE;
 		color[1]= Color.GREEN;
 		color[2]= Color.CYAN;
 		color[3]= Color.RED;
-		color[4]= Color.BLUE;
-		color[5]= Color.yellow;
+		color[4]= Color.PINK;
+		color[5]= Color.BLUE;
 		
 				
 		Ladrillo l = null;
@@ -150,7 +150,7 @@ public class Arkanoid {
 			int xAleatoria = numAleatorio(10, 500);
 			int yAleatoria = numAleatorio(10, 200);
 			
-			Pelota p = new Pelota(xAleatoria, yAleatoria, 20, 20, null, 10, 10);
+			Pelota p = new Pelota(xAleatoria, yAleatoria, 30, 30, null, 20, 20);
 			actores.add(p);
 		
 		

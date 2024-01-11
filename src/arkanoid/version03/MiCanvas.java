@@ -37,7 +37,7 @@ public class MiCanvas extends Canvas {
 		// Obtengo el objeto gráfico que me permita pintar en el doble búffer
 		Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
 		// Pinto un rectángulo negro que ocupe toda la escena
-		g.setColor(Color.black);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
 		// Pinto cada uno de los actores

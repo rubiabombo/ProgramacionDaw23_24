@@ -1,6 +1,6 @@
 package capitulo7.bloque1;
 
-public class MinimosYMaximosTiposPrimitivos {
+public class Ej01_MinimosYMaximosTiposPrimitivos {
 
 	public static void main(String[] args) {
 		System.out.println("          ------------------------------------------------------------");

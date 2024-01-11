@@ -49,9 +49,9 @@ public class Pelota extends Actor {
 	 */
 	@Override
 	public void actua() {
-		// El monstruo se mueve de manera horizontal, en cada FPS
+		
 		this.x += this.velocidadX;
-		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
+
 		if (this.x < 0 || this.x > 800) {
 			this.velocidadX = -this.velocidadX;
 		}

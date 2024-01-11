@@ -2,7 +2,7 @@ package capitulo7.bloque1;
 
 import javax.swing.JOptionPane;
 
-public class ContrasenaConRequisitos {
+public class Ej02_ContrasenaConRequisitos {
 	public static void main(String[] args) {
 		String contrasena;
 		do {

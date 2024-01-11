@@ -9,11 +9,11 @@ import java.util.Properties;
 
 
 
-public class Ejercicio04_FicheroDePropiedades {
+public class Ej04_FicheroDePropiedades {
 
     	private static Properties propiedades = null;
 
-    	public Ejercicio04_FicheroDePropiedades () {
+    	public Ej04_FicheroDePropiedades () {
     		super();
     	}
     	
@@ -30,7 +30,7 @@ public class Ejercicio04_FicheroDePropiedades {
 //    				propiedades.load(propiedades.getClass().getResourceAsStream("/tutorialJava/capitulo6_Recursos/ejemplo.properties"));
 
     				// Otra forma de leer el fichero de propiedades
-    				File file = new File("./src/tutorialJava/capitulo7/config.properties");
+    				File file = new File("./src/capitulo7/config.properties");
     				System.out.println("Fichero encontrado: " + file.exists());
     				propiedades.load(new FileReader(file));
     			
@@ -80,10 +80,10 @@ public class Ejercicio04_FicheroDePropiedades {
     	 * @param args
     	 */
     	public static void main (String args[]) {
-    		String texto = Ejercicio04_FicheroDePropiedades.getProperty("Texto");
-    		int entero = Ejercicio04_FicheroDePropiedades.getIntProperty("entero");
-    		String flotante = Ejercicio04_FicheroDePropiedades.getProperty("flotante");
-    		String booleano = Ejercicio04_FicheroDePropiedades.getProperty("booleano");
+    		String texto = Ej04_FicheroDePropiedades.getProperty("Texto");
+    		int entero = Ej04_FicheroDePropiedades.getIntProperty("Entero");
+    		String flotante = Ej04_FicheroDePropiedades.getProperty("Flotante");
+    		String booleano = Ej04_FicheroDePropiedades.getProperty("Booleano");
     		
     		 // Imprimir propiedades
             System.out.println("Texto: " + texto);
