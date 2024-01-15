@@ -1,10 +1,9 @@
 package utils;
 
 
+
 public class UtilsArrays {
 
-
-	
 	/**
 	 * Imprime el array en consola, de forma que queda en una única línea y con
 	 * un espacio en blanco entre valores
@@ -150,9 +149,28 @@ public class UtilsArrays {
 		}
 	}
 
+	
+	public static void ordenaArray (int a[], boolean asc) {
+		boolean hayIntercambios;
+		do {
+			hayIntercambios = false;
+			for (int i = 0; i < (a.length - 1); i++) {
+				if ((asc == true && a[i] > a[i + 1]) 
+						|| (asc == false && a[i] < a[i + 1])) {
+					int aux = a[i];
+					a[i] = a[i + 1];
+					a[i + 1] = aux;
+					hayIntercambios = true;
+				}
+			}
+		} while (hayIntercambios == true);
+
+	}
+
+	public static void ordenaArray(int[] a) {
+		ordenaArray(a, true);		
+	}
 }
-
-
 
 
 

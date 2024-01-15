@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Pelota extends Actor {
 
-	private int velocidadX = -5;
-	private int velocidadY = -5;
+	private int velocidadX = -50;
+	private int velocidadY = -50;
 		
 	
 	/**
