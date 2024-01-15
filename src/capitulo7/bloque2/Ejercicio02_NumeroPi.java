@@ -3,24 +3,20 @@ package capitulo7.bloque2;
 public class Ejercicio02_NumeroPi {
 
 	public static void main(String[] args) {
-		
-		double pi = 4; // creamos variable para el número pi
-		double num = 4;
-		double den = 3;
-
-
+		double pi = 0;
+		int x = 1;
+		int cont = 0;
 		do {
-			//Realizamos operaciones
-			pi = pi - (num/den);			
-
-			num = num * -1; //Cambiamos signo para siguiente vuelta del bucle
-			den += 2;//Aumentamos denominador para continuar con la serie
-
-
-		} while (pi <= Math.PI - 0.00001 || pi >= Math.PI); // Salimos del bucle cuando tengamos un error menos al 0.00001
+			if(cont%2 == 0) pi += 4/(double) x;
+			else pi += - 4/(double) x;
+			x = x+2;
+			System.out.println(pi);
+			System.out.println(x);
+			cont++;
+			
+		}while(Math.abs(pi-Math.PI) >= 0.0001);
 		
-
-		System.out.println("El número pi es: " + pi);
+		System.out.println(pi);
 	}
 }
 
