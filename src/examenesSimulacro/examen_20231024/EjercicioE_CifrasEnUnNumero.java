@@ -5,11 +5,10 @@ import utils.Utils;
 public class EjercicioE_CifrasEnUnNumero {
 
 	public static void main(String[] args) {
-		int azar = Utils.obtenerNumeroAzar(0, 10000);		
-		
+		int azar = Utils.obtenerNumeroAzar(0,10000);
 		int contCifras = 0;
 		System.out.println(azar);
-
+		
 		if (azar == 0) {
 			System.out.println("Tiene un dígito");
 		}
@@ -17,7 +16,7 @@ public class EjercicioE_CifrasEnUnNumero {
 			contCifras++;
 			azar/=10;
 		}
-		System.out.println("Tiene " + contCifras + " cifras");
+		System.out.println("Tiene" + contCifras + "cifras");
 	}
 
 }

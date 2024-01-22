@@ -7,11 +7,13 @@ public class EjercicioF_TiradasDeUnDado {
 
 	public static void main(String[] args) {
 		int tiradas[] = new int[10];
-		int valorBuscado, contadorOcurrencias = 0;
+		int valorBuscado;
+		int contadorOcurrencias = 0;
 		
 		UtilsArrays.inicializaArray(tiradas, 1, 6);
 		UtilsArrays.imprimeArray(tiradas);
 		
+
 		do {
 			valorBuscado = Utils.pideNumeroEntero("¿Qué valor deseas buscar?: ");
 			

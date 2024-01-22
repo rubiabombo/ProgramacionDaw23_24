@@ -12,17 +12,17 @@ public class Partido {
 	
 	
 	public Partido() {
-		for (int i = 0; i < locales.length; i++) {
-			locales[i] = new Jugador();
-			locales[i].setNombre(nombres[i]);			
+		for ( int i = 0; i < locales.length; i++) {
+			locales[i] =  new Jugador();
+			locales[i].setNombre(nombres[i]);
 		}
 		for (int i = 0; i < visitantes.length; i++) {
 			visitantes[i] = new Jugador();
 			visitantes[i].setNombre(nombres[i + 5]);
 		}
 	}
-
-	/**
+	
+	/*
 	 * 
 	 */
 	public void juega() {
@@ -33,12 +33,12 @@ public class Partido {
 			}
 		}
 	}
-
-	/**
+	
+	/*
 	 * 
 	 */
 	public void estadisticas() {
-		// Creo un único array para fundir los dos arrrays de jugadores
+		//Creo un único array para fundir los dos arrays de jugadores
 		Jugador e[] = new Jugador[10];
 		for (int i = 0; i < locales.length; i++) {
 			e[i] = locales[i];
@@ -48,12 +48,13 @@ public class Partido {
 		}
 		
 		// Ordeno por número de canastas
-		ordenaArray(e);
-		
-		for (int i = 0; i < e.length; i++) {
-			System.out.println(e[i]);
-		}
+				ordenaArray(e);
+				
+				for (int i = 0; i < e.length; i++) {
+					System.out.println(e[i]);
+				}
 	}
+
 	
 	/**
 	 * 
@@ -76,43 +77,37 @@ public class Partido {
 
 	}
 
-	
 	@Override
 	public String toString() {
-		return "Partido [locales=" + Arrays.toString(locales) + ", visitantes=" + Arrays.toString(visitantes) + "]";
+		return "Partido [nombres=" + Arrays.toString(nombres) + ", locales=" + Arrays.toString(locales)
+				+ ", visitantes=" + Arrays.toString(visitantes) + "]";
 	}
-
 
 	public String[] getNombres() {
 		return nombres;
 	}
 
-
 	public void setNombres(String[] nombres) {
 		this.nombres = nombres;
 	}
-
 
 	public Jugador[] getLocales() {
 		return locales;
 	}
 
-
 	public void setLocales(Jugador[] locales) {
 		this.locales = locales;
 	}
-
 
 	public Jugador[] getVisitantes() {
 		return visitantes;
 	}
 
-
 	public void setVisitantes(Jugador[] visitantes) {
 		this.visitantes = visitantes;
 	}
-	
-	
+		
 	}
+	
 
 

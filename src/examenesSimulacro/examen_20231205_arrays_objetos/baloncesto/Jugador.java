@@ -11,56 +11,56 @@ public class Jugador {
 	public Jugador (){
 		super();
 		canastas = 0;
-		fallos  = 0;
-		probabilidadCanasta= Utils.obtenerNumeroAzar(20, 100);
-	}
+		fallos = 0;
+		probabilidadCanasta = Utils.obtenerNumeroAzar(20, 100);
+		}
 	
-	public void tiraACanasta (){
+	public void tiraACanasta() {
 		int azar = Utils.obtenerNumeroAzar(0, 100);
 		if (azar <= probabilidadCanasta) {
 			canastas += 1;
-		}
-		else {
+		}else {
 			fallos += 1;
 		}
 	}
-		@Override
-		public String toString() {
-			return "Jugador [nombre=" + nombre + ", canastas=" + canastas + ", probabilidadCanasta=" + probabilidadCanasta
-					+ ", fallos=" + fallos + "]";
-		}
 
-		public String getNombre() {
-			return nombre;
-		}
+	@Override
+	public String toString() {
+		return "Jugador [nombre=" + nombre + ", canastas=" + canastas + ", probabilidadCanasta=" + probabilidadCanasta
+				+ ", fallos=" + fallos + "]";
+	}
 
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
+	public String getNombre() {
+		return nombre;
+	}
 
-		public int getCanastas() {
-			return canastas;
-		}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-		public void setCanastas(int canastas) {
-			this.canastas = canastas;
-		}
+	public int getCanastas() {
+		return canastas;
+	}
 
-		public int getProbabilidadCanasta() {
-			return probabilidadCanasta;
-		}
+	public void setCanastas(int canastas) {
+		this.canastas = canastas;
+	}
 
-		public void setProbabilidadCanasta(int probabilidadCanasta) {
-			this.probabilidadCanasta = probabilidadCanasta;
-		}
+	public int getProbabilidadCanasta() {
+		return probabilidadCanasta;
+	}
 
-		public int getFallos() {
-			return fallos;
-		}
+	public void setProbabilidadCanasta(int probabilidadCanasta) {
+		this.probabilidadCanasta = probabilidadCanasta;
+	}
 
-		public void setFallos(int fallos) {
-			this.fallos = fallos;
-		}
+	public int getFallos() {
+		return fallos;
+	}
+
+	public void setFallos(int fallos) {
+		this.fallos = fallos;
+	}
 	
 
 	}

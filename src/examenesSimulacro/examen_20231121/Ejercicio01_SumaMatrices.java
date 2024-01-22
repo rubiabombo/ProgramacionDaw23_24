@@ -3,8 +3,7 @@ package examenesSimulacro.examen_20231121;
 import utils.UtilsArrays;
 
 public class Ejercicio01_SumaMatrices {
-
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		int m1[][] = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 		int m2[][] = new int[][] {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
 	

@@ -3,17 +3,31 @@ package utils;
 
 
 public class UtilsArrays {
+	
 	/**
 	 * Imprime el array en consola, de forma que queda en una única línea y con
 	 * un espacio en blanco entre valores
 	 * @param num
 	 */
-	public static void imprimeArray (char[] comb) {
-		for (int i = 0; i < comb.length; i++) {
-			System.out.print(comb[i] + " ");
+	public static void imprimeArray (int a[]) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
 		}
 		System.out.println();
 	}
+
+	/**
+	 * Imprime el array en consola, de forma que queda en una única línea y con
+	 * un espacio en blanco entre valores
+	 * @param num
+	 */
+	public static void imprimeArray (char a[]) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+		System.out.println();
+	}
+
 	/**
 	 * 
 	 * @param a
@@ -26,141 +40,66 @@ public class UtilsArrays {
 		}
 	}
 	
+	
 	/**
 	 * 
 	 * @param array
-	 */
-	public static void mostrarArrayConDescripcion (int[] array, String texto) {
-		System.out.println(texto);
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-	}
-	
-	public static void mostrarArray (int[] array) {
-		System.out.println("Contenido del array");
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-	}
-	
-	public static void mostrarArrayDouble (double[] array) {
-		System.out.println("Contenido del array");
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-	}
-	
-	public static void mostrarArrayChar (char[] array) {
-		System.out.println("Contenido del array");
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-	}
-	
-	public static void mostrarArrayFloat (float[] array) {
-		System.out.println("Contenido del array");
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-		System.out.println();
-	}
-
-	/**
-	 * 
-	 * @param longitud
-	 * @param limInf
-	 * @param limSup
 	 * @return
 	 */
-	public static int[] creaArrayNumerosAzar (int longitud, int limInf, int limSup) {
-		int array[] = new int[longitud];
+	public static int suma (int array[]) {
+		int suma = 0;
 		for (int i = 0; i < array.length; i++) {
-			array[i] = Utils.obtenerNumeroAzar(limInf, limSup);
+			suma += array[i];
 		}
-		return array;
-	}
-
-	/**
-	 * 
-	 * @param longitud
-	 * @param limInf
-	 * @param limSup
-	 * @return
-	 */
-	public static int[] creaArrayNumerosUsuario (int longitud) {
-		int array[] = new int[longitud];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = Utils.obtenerEntero();
-		}
-		return array;
+		return suma;
 	}
 	
 	
 	/**
 	 * 
 	 * @param array
+	 * @return
 	 */
-	public static void ordenaArray (int array[]) {
+	public static float promedia (int array[]) {
+		return suma(array) / (float) array.length;
+	}
+	
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static int mayor (int array[]) {
+		int mayor = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] > mayor) mayor = array[i];
+		}
+		return mayor;
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static int menor (int array[]) {
+		int menor = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < menor) menor = array[i];
+		}
+		return menor;
+	}
 
 	
-		
-		boolean hayIntercambios;
-		do {
-			hayIntercambios = false;
-			// Empieza el algoritmo
-			for (int i = 0; i < array.length - 1; i++) {
-				if (array[i+1] < array[i]) {
-					// Entonces hago un intercambio
-					int aux = array[i+1];
-					array[i+1] = array[i];
-					array[i] = aux;
-					hayIntercambios = true;
-				}
-			}
-		} while (hayIntercambios);
-
-	}
 	
-	public static void inicializaMatriz (int matriz[][]) {
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				matriz[i][j] = Utils.obtenerNumeroAzar(0, 100);
-			}
-		}
-	}
-	
-	public static void inicializaMatriz1000 (int matriz[][]) {
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				matriz[i][j] = Utils.obtenerNumeroAzar(0, 1000);
-			}
-		}
-	}
-	
-	public static void mostrarMatriz (int matriz[][]) {
-		System.out.println("Contenido de la matriz");
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				System.out.print(matriz[i][j] + "\t");
-			}
-			System.out.println();
-		}
-	}
-	
-	public static void mostrarMatrizChar (char matriz[][]) {
-		System.out.println("Contenido de la matriz");
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				System.out.print(matriz[i][j] + "\t");
-			}
-			System.out.println();
-		}
-	}
+	/**
+	 * 
+	 * @param filas
+	 * @param cols
+	 * @param valorInicial
+	 * @return
+	 */
 	public static int[][] creaEInicializaMatriz (int filas, int cols, int valorInicial) {
 		int m[][] = new int[filas][cols];
 		
@@ -172,34 +111,64 @@ public class UtilsArrays {
 		
 		return m;
 	}
-	public static void imprimeMatriz(int[][] m1) {
-		// TODO Auto-generated method stub
+	
+	
+	/**
+	 * 
+	 * @param filas
+	 * @param cols
+	 * @param minimo
+	 * @param maximo
+	 * @return
+	 */
+	public static int[][] creaEInicializaMatrizAlAzar (
+			int filas, int cols, int minimo, int maximo) {
 		
-	}
-	public static void imprimeArray(int[] m) {
-		// TODO Auto-generated method stub
+		int m[][] = new int[filas][cols];
 		
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[i].length; j++) {
+				m[i][j] = Utils.obtenerNumeroAzar(minimo, maximo);
+			}
+		}
+		
+		return m;
 	}
-	public static int[][] creaEInicializaMatrizAlAzar(int i, int j, int k, int l) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public static String suma(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public static String promedia(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public static String menor(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public static String mayor(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	
+	/**
+	 * 
+	 * @param m
+	 */
+	public static void imprimeMatriz (int m[][]) {
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[i].length; j++) {
+				System.out.print(m[i][j] + "\t");
+			}
+			System.out.println();
+		}
 	}
 
+	
+	public static void ordenaArray (int a[], boolean asc) {
+		boolean hayIntercambios;
+		do {
+			hayIntercambios = false;
+			for (int i = 0; i < (a.length - 1); i++) {
+				if ((asc == true && a[i] > a[i + 1]) 
+						|| (asc == false && a[i] < a[i + 1])) {
+					int aux = a[i];
+					a[i] = a[i + 1];
+					a[i + 1] = aux;
+					hayIntercambios = true;
+				}
+			}
+		} while (hayIntercambios == true);
+
+	}
+
+	public static void ordenaArray(int[] a) {
+		ordenaArray(a, true);		
+	}
 
 }

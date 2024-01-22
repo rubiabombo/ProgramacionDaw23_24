@@ -1,5 +1,7 @@
 package examenesSimulacro.examen_20231121;
 
+import javax.security.auth.Subject;
+
 import utils.UtilsArrays;
 
 public class Ejercicio05_SubArraySumaMaxima {

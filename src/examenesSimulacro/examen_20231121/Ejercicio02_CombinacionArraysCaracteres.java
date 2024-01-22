@@ -32,6 +32,7 @@ public class Ejercicio02_CombinacionArraysCaracteres {
 		}
 		
 		return combinado;
+	
 	}
 }
 

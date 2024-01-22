@@ -11,12 +11,15 @@ public class Ejercicio03_ElementosDiagonalSecundaria {
 		System.out.println("Suma vale: " + sumaDiagonalSecundaria(m1));						
 	}
 
-	public static int sumaDiagonalSecundaria (int m[][]) {
+	private static int sumaDiagonalSecundaria(int m [][] ) {
 		int suma = 0;
-		for (int i = 0, j = m.length - 1; i < m.length && j > -1; i++, j--) {
+		for (int i = 0, j = m.length -1; i < m.length && j > -1; i++, j--) {
 			suma += m[i][j];
-		}
+		
+	}
 		return suma;
+
+	
 	}
 }
 
