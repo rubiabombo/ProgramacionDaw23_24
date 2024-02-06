@@ -77,7 +77,7 @@ public class Ej04_FicheroDePropiedades {
     	
     	/**
     	 * 
-    	 * @param args
+    		return Integer.parseInt(getPropiedades().getProperty(nombrePropiedad));	 * @param args
     	 */
     	public static void main (String args[]) {
     		String texto = Ej04_FicheroDePropiedades.getProperty("Texto");
